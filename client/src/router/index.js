@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import BookDetail from '../views/BookDetail.vue';
 import BookList from '../views/BookList.vue';
 
+
 const routes = [
   {
     path: '/',
