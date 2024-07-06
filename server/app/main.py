@@ -19,4 +19,9 @@ def create_app():
     app.register_blueprint(book_bp, url_prefix='/api/books')
     app.register_blueprint(category_bp, url_prefix='/api/categories')
     
+    with app.app_context():
+        print("Creating all tables...")
+        db.create_all()
+        print("Tables created!")
+    
     return app
