@@ -1,24 +1,27 @@
 <template>
-  <router-link :to="'/admin/book/create'">Crear</router-link>
-
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Título</th>
-        <th>Autor</th>
-        <th colspan="2">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <BookRow
-        v-for="(book, index) in books"
-        :key="book.id"
-        :book="book"
-        :index="index + 1"
-      />
-    </tbody>
-  </table>
+  <div class="container mx-auto p-8">
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-gray-800 border border-gray-600 rounded-lg">
+        <thead>
+          <tr class="uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left">#</th>
+            <th class="py-3 px-6 text-left">Título</th>
+            <th class="py-3 px-6 text-left">Autor</th>
+            <th class="py-3 px-6 text-center" colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm font-light">
+          <BookRow
+            v-for="(book, index) in books"
+            :key="book.id"
+            :book="book"
+            :index="index + 1"
+            class="border-b border-gray-600"
+          />
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>

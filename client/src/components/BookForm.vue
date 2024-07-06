@@ -1,58 +1,72 @@
 <template>
-  <form @submit.prevent="submitForm">
+  <form @submit.prevent="submitForm" class="max-w-md mx-auto p-6 m-8 bg-gray-800 shadow-md rounded-md">
     <!-- ISBN -->
-    <div>
-      <label for="isbn">ISBN</label>
-      <input v-model="book.isbn" type="text" id="isbn" name="isbn" required />
+    <div class="mb-4">
+      <label for="isbn" class="block text-sm font-medium text-gray-300">ISBN</label>
+      <input v-model="book.isbn" type="text" id="isbn" name="isbn" required
+             class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      />
     </div>
 
     <!-- Título -->
-    <div>
-      <label for="title">Título</label>
-      <input v-model="book.title" type="text" id="title" name="title" required />
+    <div class="mb-4">
+      <label for="title" class="block text-sm font-medium text-gray-300">Título</label>
+      <input v-model="book.title" type="text" id="title" name="title" required
+             class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      />
     </div>
 
     <!-- Portada -->
-    <div>
-      <label for="cover">Portada</label>
-      <input v-model="book.cover" type="text" id="cover" name="cover" required />
+    <div class="mb-4">
+      <label for="cover" class="block text-sm font-medium text-gray-300">Portada</label>
+      <input v-model="book.cover" type="text" id="cover" name="cover" required
+             class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      />
     </div>
 
     <!-- Sinopsis -->
-    <div>
-      <label for="synopsis">Sinopsis</label>
-      <textarea v-model="book.synopsis" name="synopsis" id="synopsis" cols="30" rows="10" required></textarea>
+    <div class="mb-4">
+      <label for="synopsis" class="block text-sm font-medium text-gray-300">Sinopsis</label>
+      <textarea v-model="book.synopsis" id="synopsis" name="synopsis" rows="4" required
+                class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      ></textarea>
     </div>
 
     <!-- Fecha de Publicación -->
-    <div>
-      <label for="publication_date">Fecha de Publicación</label>
-      <input v-model="book.publication_date" type="date" id="publication_date" name="publication_date" required />
+    <div class="mb-4">
+      <label for="publication_date" class="block text-sm font-medium text-gray-300">Fecha de Publicación</label>
+      <input v-model="book.publication_date" type="date" id="publication_date" name="publication_date" required
+             class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      />
     </div>
 
     <!-- Nombre del Autor -->
-    <div>
-      <label for="author_first_name">Nombre del Autor</label>
-      <input v-model="book.author_first_name" type="text" id="author_first_name" name="author_first_name" required />
+    <div class="mb-4">
+      <label for="author_first_name" class="block text-sm font-medium text-gray-300">Nombre del Autor</label>
+      <input v-model="book.author_first_name" type="text" id="author_first_name" name="author_first_name" required
+             class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      />
     </div>
 
     <!-- Apellido del Autor -->
-    <div>
-      <label for="author_last_name">Apellido del Autor</label>
-      <input v-model="book.author_last_name" type="text" id="author_last_name" name="author_last_name" required />
+    <div class="mb-4">
+      <label for="author_last_name" class="block text-sm font-medium text-gray-300">Apellido del Autor</label>
+      <input v-model="book.author_last_name" type="text" id="author_last_name" name="author_last_name" required
+             class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      />
     </div>
 
     <!-- Categoría -->
-    <div>
-      <label for="category_id">Categoría</label>
-      <select v-model="book.category_id" id="category_id" required>
-        <option v-for="category in categories" :key="category.id" :value="category.id">
-          {{ category.name }}
-        </option>
+    <div class="mb-4">
+      <label for="category_id" class="block text-sm font-medium text-gray-300">Categoría</label>
+      <select v-model="book.category_id" id="category_id" name="category_id" required
+              class="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-300"
+      >
+        <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
       </select>
     </div>
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Guardar</button>
   </form>
 </template>
 
@@ -117,6 +131,8 @@ export default {
       } else {
         this.createBook(this.book);
       }
+
+      this.$router.push('/admin/books');
     },
     resetForm() {
       this.book = {
