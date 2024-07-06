@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+    <Header />
     <router-view />
   </div>
 </template>
 
-<script setup>
-</script>
+<script>
+import Header from './components/Header.vue';
+import 'vue3-toastify/dist/index.css';
 
-<style scoped>
-</style>
+export default {
+  components: {
+    Header
+  },
+}
+</script>

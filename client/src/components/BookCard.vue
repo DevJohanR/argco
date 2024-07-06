@@ -1,24 +1,16 @@
 <template>
-  <div class="book-card">
-    <img :src="book.cover" :alt="book.title">
-    <h3>{{ book.title }}</h3>
-    <p>{{ `${book.author.last_name}` + ', ' + `${book.author.first_name}` }}</p>
+  <div class="h-90 p-8 flex flex-col text-left">
+    <img 
+      :src="book.cover" 
+      :alt="book.title" 
+      class="w-full h-48 md:h-80 object-fill mb-4"
+    >
+    <div class="flex-grow">
+      <h3 class="text-lg font-semibold mb-2 truncate hover:text-orange-400">{{ book.title }}</h3>
+    </div>
+    <p class="text-gray-100">{{ `${book.author.last_name}, ${book.author.first_name}` }}</p>
   </div>
 </template>
-
-<style>
-.book-card {
-  padding: 16px;
-  margin: 8px;
-  text-align: center;
-  width: 200px;
-
-  & img {
-    width: 100%;
-    height: 50vh;
-  }
-}
-</style>
 
 <script>
 export default {

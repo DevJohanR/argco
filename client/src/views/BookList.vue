@@ -1,29 +1,17 @@
 <template>
-  <div class="book-list">
-    <div class="book-grid">
-      <router-link 
-        v-for="book in books" 
-        :key="book.id" 
+  <div class="container mx-auto p-4">
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <router-link
+        v-for="book in books"
+        :key="book.id"
         :to="'/book/' + book.id"
+        class="block"
       >
         <BookCard :book="book" />
       </router-link>
     </div>
   </div>
 </template>
-
-<style>
-.book-list {
-  padding: 16px;
-}
-
-.book-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-}
-</style>
 
 <script>
 import { mapState, mapActions } from 'vuex';

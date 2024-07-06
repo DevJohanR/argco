@@ -1,4 +1,5 @@
 import bookService from "../services/bookService";
+import { toast } from "vue3-toastify";
 
 export default {
   namespaced: true,
@@ -21,7 +22,13 @@ export default {
         .then((response) => {
           commit("SET_BOOKS", response.data);
         })
-        .catch((error) => console.error("Error fetching books:", error));
+        .catch((error) =>
+          toast("Error al obtener libros", {
+            theme: "dark",
+            type: "error",
+            dangerouslyHTMLString: true,
+          })
+        );
     },
     fetchBook({ commit }, id) {
       bookService
@@ -29,31 +36,70 @@ export default {
         .then((response) => {
           commit("SET_BOOK", response.data);
         })
-        .catch((error) => console.error("Error fetching book:", error));
+        .catch((error) =>
+          toast("Error al obtener libro", {
+            theme: "dark",
+            type: "error",
+            dangerouslyHTMLString: true,
+          })
+        );
     },
     createBook({ dispatch }, book) {
       bookService
         .createBook(book)
         .then(() => {
+          toast("Libro guardado exitosamente", {
+            theme: "dark",
+            type: "success",
+            dangerouslyHTMLString: true,
+          });
           dispatch("fetchBooks");
         })
-        .catch((error) => console.error("Error creating book:", error));
+        .catch((error) =>
+          toast("Error al guardar libro", {
+            theme: "dark",
+            type: "error",
+            dangerouslyHTMLString: true,
+          })
+        );
     },
     updateBook({ dispatch }, { id, book }) {
       bookService
         .updateBook(id, book)
         .then(() => {
+          toast("Libro editado exitosamente", {
+            theme: "dark",
+            type: "success",
+            dangerouslyHTMLString: true,
+          });
           dispatch("fetchBooks");
         })
-        .catch((error) => console.error("Error updating book:", error));
+        .catch((error) =>
+          toast("Error al actualizar libro", {
+            theme: "dark",
+            type: "error",
+            dangerouslyHTMLString: true,
+          })
+        );
     },
     deleteBook({ dispatch }, id) {
       bookService
         .deleteBook(id)
         .then(() => {
+          toast("Libro eliminado exitosamente", {
+            theme: "dark",
+            type: "success",
+            dangerouslyHTMLString: true,
+          });
           dispatch("fetchBooks");
         })
-        .catch((error) => console.error("Error deleting book:", error));
+        .catch((error) =>
+          toast("Error al eliminar libro", {
+            theme: "dark",
+            type: "error",
+            dangerouslyHTMLString: true,
+          })
+        );
     },
   },
   getters: {
