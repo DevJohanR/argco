@@ -1,4 +1,4 @@
-# Server
+# ARGCO BackEnd
 
 ## Para empezar
 
@@ -24,4 +24,10 @@ source ./venv/bin/activate
 
 ````bash
 pip install -r requirements.txt
+````
+
+4. Ejecuta la aplicación:
+
+````bash
+python run.py
 ````
