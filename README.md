@@ -39,6 +39,6 @@ La plataforma "Librería Online" es una herramienta integral para la consulta y 
 
 Este proyecto ha sido desplegado utilizando:
 
-  - [filess.io](https://filess.io/) para la base de datos.
+  - [Hostinger](https://www.hostinger.com.ar/) para la base de datos.
   - [Render](https://render.com/) para el backend.
   - [Netlify](https://www.netlify.com/) para el frontend.
